@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+:root {
+    --background: #181825;
+    --background-element: #1e1e2e;
+    --accent: #b4befe;
+    --accent-hover: #a3a9c4;
+    --accent-active: #8b8f9e;
+    --accent-text-hover: #1e1e2e;
+    --accent-text-active: #1e1e2e;
+    --warning: #fab387;
+    --warning-hover: #f9e2af;
+    --warning-active: #f7a877;
+    --warning-text: #1e1e2e;
+    --warning-text-hover: #1e1e2e;
+    --warning-text-active: #1e1e2e;
+    --error: #f38ba8;
+    --error-hover: #e97d94;
+    --error-active: #d96e84;
+    --error-text: #1e1e2e;
+    --error-text-hover: #1e1e2e;
+    --error-text-active: #1e1e2e;
+    --success: #a2f29f;
+    --success-hover: #8de78b;
+    --success-active: #7ad277;
+    --success-text: #1e1e2e;
+    --success-text-hover: #1e1e2e;
+    --success-text-active: #1e1e2e;
+    --info: #b4befe;
+    --info-hover: #a3a9c4;
+    --info-active: #8b8f9e;
+    --info-text: #1e1e2e;
+    --info-text-hover: #1e1e2e;
+    --info-text-active: #1e1e2e;
+    --transition-time: .35s;
+}
+
+* {
+    font-family: 'JetBrains Mono', monospace;
+    transition: all var(--transition-time) ease-in-out;
+}
+
+html, body {
+    /* DISPLAY SETTINGS */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* SIZE SETTINGS */
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
+    /* BORDER AND BACKGROUND SETTINGS */
+    border: 0;
+    background-color: var(--background);
+}
+
+form {
+    /* DISPLAY SETTINGS */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-around;
+
+    /* SIZE SETTINGS */
+    width: fit-content;
+    min-width: 35%;
+    height: fit-content;
+    min-height: 45%;
+    padding: 1vw;
+
+    /* BORDER, BACKGROUND AND OPACITY SETTINGS */
+    border-radius: 2vh;
+    border: 3px solid var(--accent);
+    background-color: var(--background-element);
+
+    /* MISCELLANEOUS */
+}
+
+h1 {
+    font-size: 2.5vw;
+    color: var(--accent);
+}
+
+input {
+    /* DISPLAY SETTINGS */
+    position: relative;
+    margin-bottom: 1vh;
+
+    /* SIZE SETTINGS */
+    width: 75%;
+    height: 5vh;
+    padding: 1vh;
+    font-size: 1vw;
+
+    /* BORDER, BACKGROUND AND OPACITY SETTINGS */
+    border: none;
+    opacity: .5;
+    color: var(--info);
+    border-bottom: 3px solid var(--info);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: transparent;
+
+    /* MISCELLANEOUS */
+    user-select: none;
+}
+
+input:focus {
+    opacity: 1;
+    outline: none;
+}
+
+input:hover {
+    opacity: 1;
+}
+
+input[type=password] { letter-spacing: .75vw; }
+input[type=password]::placeholder { letter-spacing: normal; }
+
+button {
+    /* SIZE SETTINGS */
+    height: 4vh;
+    margin: 1vh;
+    font-weight: bold;
+    font-size: .75vw;
+    padding: 1vh;
+    text-align: center;
+
+    /* BORDER, BACKGROUND AND OPACITY SETTINGS */
+    border-radius: 5px;
+    border: none;
+    color: #181825;
+    background-color: lightgrey;
+
+    /* MISCELLANEOUS */
+    user-select: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover{
+    background-color: white;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+button:active{
+    transform: scale(1);
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes blink {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+    100% { filter: brightness(1); }
+}
+
+.popup {
+    /* DISPLAY SETTINGS */
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -100vh;
+    left: 5vw;
+
+    /* SIZE SETTINGS */
+    padding: 20px;
+    min-height: 10vh;
+    min-width: 15vw;
+
+    /* BORDER, BACKGROUND AND OPACITY SETTINGS */
+    border-radius: 5px;
+    color: #181825;
+
+    /* MISCELLANEOUS */
+    transition: 1s all;
+    text-align: center;
+}
+
+.popup.active {
+    top: 5vh;
+    animation: blink .5s;
+    animation-delay: 1s;
+    animation-iteration-count: 2;
+}
+
+.popup *        { color: #181825; }
+.popup.success  { background-color: var(--success); }
+.popup.error    { background-color: var(--error); }
+.popup.warning  { background-color: var(--warning); }
+.popup.info     { background-color: var(--info); }
+
+img {
+    object-fit: contain;
+    height: 35vh;
+}
